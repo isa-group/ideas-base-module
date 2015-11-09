@@ -38,37 +38,6 @@ public abstract class BaseTestModuleController {
 		response.setCharacterEncoding("UTF-8");
 		return getResourceContent(filename + "." + fileext);
 	}
-	
-	
-
-//	@RequestMapping(value = "/resource/agreement/{document}", method = RequestMethod.GET)
-//	@ResponseBody
-//	public String getAgreementResource(
-//			@PathVariable("document") String document,
-//			HttpServletResponse response) {
-//		response.setContentType("text/plain");
-//		response.setCharacterEncoding("UTF-8");
-//		return getResourceContent(document + ".ag");
-//	}
-//
-//	@RequestMapping(value = "/resource/template/{document}", method = RequestMethod.GET)
-//	@ResponseBody
-//	public String getTemplateResource(
-//			@PathVariable("document") String document,
-//			HttpServletResponse response) {
-//		response.setContentType("text/plain");
-//		response.setCharacterEncoding("UTF-8");
-//		return getResourceContent(document + ".at");
-//	}
-//
-//	@RequestMapping(value = "/resource/offer/{document}", method = RequestMethod.GET)
-//	@ResponseBody
-//	public String getOfferResource(@PathVariable("document") String document,
-//			HttpServletResponse response) {
-//		response.setContentType("text/plain");
-//		response.setCharacterEncoding("UTF-8");
-//		return getResourceContent(document + ".ao");
-//	}
 
 	public String getResourceContent(String resourceName) {
 		return Utils.loadFileContents(resourcePath + resourceName);
