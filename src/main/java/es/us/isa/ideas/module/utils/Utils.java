@@ -5,12 +5,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import es.us.isa.ideas.module.controller.BaseLanguageController;
-
 public class Utils {
 
 	public static String loadFileContents(String relativePath) {
-		InputStream inputStream = BaseLanguageController.class.getClassLoader()
+		InputStream inputStream = Utils.class.getClassLoader()
 				.getResourceAsStream(relativePath);
 
 		BufferedReader br = null;

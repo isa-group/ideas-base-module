@@ -14,18 +14,21 @@ import es.us.isa.ideas.module.utils.Utils;
 @RequestMapping("/tests")
 public abstract class BaseTestModuleController {
 
-	protected String jsonFilePath, resourcePath;
+	protected String jsonFilePath = "/tests/tests.json";
+	protected String resourcePath = "/tests/resources/";
 
 	protected abstract void setResourcePath();
 
 	protected abstract void setJsonFilePath();
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "/tests.json", method = RequestMethod.GET)
 	@ResponseBody
 	public String getJsonResource(HttpServletResponse response) {
+		setJsonFilePath();
+		setResourcePath();
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
-		return getResourceContent(jsonFilePath);
+		return Utils.loadFileContents(jsonFilePath);
 	}
 	
 	@RequestMapping(value = "/resource/{fileext}/{filename}", method = RequestMethod.GET)
@@ -36,10 +39,6 @@ public abstract class BaseTestModuleController {
 			HttpServletResponse response) {
 		response.setContentType("text/plain");
 		response.setCharacterEncoding("UTF-8");
-		return getResourceContent(filename + "." + fileext);
-	}
-
-	public String getResourceContent(String resourceName) {
-		return Utils.loadFileContents(resourcePath + resourceName);
+		return Utils.loadFileContents(resourcePath + filename + "." + fileext);
 	}
 }
