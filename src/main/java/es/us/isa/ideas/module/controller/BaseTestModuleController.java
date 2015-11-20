@@ -17,15 +17,9 @@ public abstract class BaseTestModuleController {
 	protected String jsonFilePath = "/tests/tests.json";
 	protected String resourcePath = "/tests/resources/";
 
-	protected abstract void setResourcePath();
-
-	protected abstract void setJsonFilePath();
-
 	@RequestMapping(value = "/tests.json", method = RequestMethod.GET)
 	@ResponseBody
 	public String getJsonResource(HttpServletResponse response) {
-		setJsonFilePath();
-		setResourcePath();
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		return Utils.loadFileContents(jsonFilePath);
