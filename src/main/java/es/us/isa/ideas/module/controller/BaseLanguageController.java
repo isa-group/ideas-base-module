@@ -138,6 +138,13 @@ public abstract class BaseLanguageController {
 			@RequestParam("fileUri") String fileUri,
 			@RequestParam("content") String content);
 
+        @RequestMapping(value = "/help", method = RequestMethod.GET)
+	@ResponseBody
+	public String help() {
+		initLanguage();
+		return language.getHelpURI();
+	}
+        
 	// -------
 
 	// Aux
