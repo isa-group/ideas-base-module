@@ -16,6 +16,7 @@ import es.us.isa.ideas.module.model.Format;
 import es.us.isa.ideas.module.model.Language;
 import es.us.isa.ideas.module.model.Operation;
 import es.us.isa.ideas.module.utils.Utils;
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/language")
@@ -139,10 +140,9 @@ public abstract class BaseLanguageController {
 			@RequestParam("content") String content);
 
         @RequestMapping(value = "/help", method = RequestMethod.GET)
-	@ResponseBody
-	public String help() {
+	public String help(HttpServletRequest request) {
 		initLanguage();
-		return language.getHelpURI();
+                return "forward:"+language.getHelpURI();
 	}
         
 	// -------
