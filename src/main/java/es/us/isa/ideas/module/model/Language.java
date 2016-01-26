@@ -13,6 +13,7 @@ public class Language implements Serializable {
 	private Command[] commands;
 	private Format[] formats;
 	private Operation[] operations;
+        private String helpURI;
 
 	private String inspectorLoader;
 
@@ -85,4 +86,15 @@ public class Language implements Serializable {
 		this.inspectorLoader = inspectorLoader;
 	}
 
+        public String getHelpURI() {
+            String res = "#";
+            if(helpURI!=null){
+                res=helpURI;
+            }
+            return res;
+        }
+
+        public void setHelpURI(String helpURI) {
+            this.helpURI = helpURI;
+        }   
 }
