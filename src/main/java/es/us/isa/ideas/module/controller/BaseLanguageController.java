@@ -18,8 +18,13 @@ import es.us.isa.ideas.module.model.Operation;
 import es.us.isa.ideas.module.utils.Utils;
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * 
+ * @deprecated use {@link BaseModuleController} instead.
+ */
 @Controller
 @RequestMapping("/language")
+@Deprecated
 public abstract class BaseLanguageController {
 
 	protected Language language;
@@ -117,12 +122,12 @@ public abstract class BaseLanguageController {
 		}
 	}
 
-	@RequestMapping(value = "/operation/{id}/execute", method = RequestMethod.POST)
-	@ResponseBody
-	public abstract AppResponse executeOperation(@PathVariable("id") String id,
-			@RequestParam("content") String content,
-			@RequestParam("fileUri") String fileUri,
-			@RequestParam("data") String data);
+//	@RequestMapping(value = "/operation/{id}/execute", method = RequestMethod.POST)
+//	@ResponseBody
+//	public abstract AppResponse executeOperation(@PathVariable("id") String id,
+//			@RequestParam("content") String content,
+//			@RequestParam("fileUri") String fileUri,
+//			@RequestParam("data") String data);
 
 	@RequestMapping(value = "/format/{format}/checkLanguage", method = RequestMethod.POST)
 	@ResponseBody

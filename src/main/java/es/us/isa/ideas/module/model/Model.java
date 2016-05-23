@@ -2,12 +2,7 @@ package es.us.isa.ideas.module.model;
 
 import java.io.Serializable;
 
-/**
- * 
- * @deprecated use {@link Model} instead.
- */
-@Deprecated
-public class Language implements Serializable {
+public class Model implements Serializable {
 
 	private static final long serialVersionUID = 5558188895408490691L;
 
@@ -16,13 +11,10 @@ public class Language implements Serializable {
 	private String name;
 	private String defaultFileName;
 	private Command[] commands;
-	private Format[] formats;
+	private Syntax[] syntaxes;
 	private Operation[] operations;
-        private String helpURI;
 
-	private String inspectorLoader;
-
-	public Language() {
+	public Model() {
 		super();
 		defaultFileName = "";
 	}
@@ -67,12 +59,12 @@ public class Language implements Serializable {
 		this.extension = extension;
 	}
 
-	public Format[] getFormats() {
-		return formats;
+	public Syntax[] getSyntaxes() {
+		return syntaxes;
 	}
 
-	public void setFormats(Format[] formats) {
-		this.formats = formats;
+	public void setSyntaxes(Syntax[] syntaxes) {
+		this.syntaxes = syntaxes;
 	}
 
 	public Operation[] getOperations() {
@@ -82,24 +74,4 @@ public class Language implements Serializable {
 	public void setOperations(Operation[] operations) {
 		this.operations = operations;
 	}
-
-	public String getInspectorLoader() {
-		return inspectorLoader;
-	}
-
-	public void setInspectorLoader(String inspectorLoader) {
-		this.inspectorLoader = inspectorLoader;
-	}
-
-        public String getHelpURI() {
-            String res = "#";
-            if(helpURI!=null){
-                res=helpURI;
-            }
-            return res;
-        }
-
-        public void setHelpURI(String helpURI) {
-            this.helpURI = helpURI;
-        }   
 }

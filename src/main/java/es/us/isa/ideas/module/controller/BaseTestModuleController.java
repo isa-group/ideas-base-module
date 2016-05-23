@@ -14,25 +14,25 @@ import es.us.isa.ideas.module.utils.Utils;
 @RequestMapping("/tests")
 public abstract class BaseTestModuleController {
 
-	protected String jsonFilePath = "/tests/tests.json";
-	protected String resourcePath = "/tests/resources/";
+    protected String jsonFilePath = "/tests/tests.json";
+    protected String resourcePath = "/tests/resources/";
 
-	@RequestMapping(value = "/tests.json", method = RequestMethod.GET)
-	@ResponseBody
-	public String getJsonResource(HttpServletResponse response) {
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
-		return Utils.loadFileContents(jsonFilePath);
-	}
-	
-	@RequestMapping(value = "/resource/{fileext}/{filename}", method = RequestMethod.GET)
-	@ResponseBody
-	public String getResource(
-			@PathVariable("fileext") String fileext,
-			@PathVariable("filename") String filename,
-			HttpServletResponse response) {
-		response.setContentType("text/plain");
-		response.setCharacterEncoding("UTF-8");
-		return Utils.loadFileContents(resourcePath + filename + "." + fileext);
-	}
+    @RequestMapping(value = "/tests.json", method = RequestMethod.GET)
+    @ResponseBody
+    public String getJsonResource(HttpServletResponse response) {
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        return Utils.loadFileContents(jsonFilePath);
+    }
+
+    @RequestMapping(value = "/resource/{fileext}/{filename}", method = RequestMethod.GET)
+    @ResponseBody
+    public String getResource(
+            @PathVariable("fileext") String fileext,
+            @PathVariable("filename") String filename,
+            HttpServletResponse response) {
+        response.setContentType("text/plain");
+        response.setCharacterEncoding("UTF-8");
+        return Utils.loadFileContents(resourcePath + filename + "." + fileext);
+    }
 }

@@ -2,16 +2,11 @@ package es.us.isa.ideas.module.model;
 
 import java.io.Serializable;
 
-/**
- * 
- * @deprecated use {@link Syntax} instead.
- */
-@Deprecated
-public class Format implements Serializable {
+public class Syntax implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private String format;
+	private String id;
 	private String editorModeId;
 	private String _editorModeURI;
 	private String editorThemeId;
@@ -19,16 +14,16 @@ public class Format implements Serializable {
 	private String action;
 	private boolean checkLanguage;
 	
-	public Format() {
+	public Syntax() {
 		super();
 	}
 
-	public String getFormat() {
-		return format;
+	public String getId() {
+		return id;
 	}
 
-	public void setFormat(String format) {
-		this.format = format;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getEditorModeId() {
