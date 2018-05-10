@@ -17,6 +17,7 @@ import es.us.isa.ideas.module.model.Language;
 import es.us.isa.ideas.module.model.Operation;
 import es.us.isa.ideas.module.utils.Utils;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/language")
@@ -122,14 +123,14 @@ public abstract class BaseLanguageController {
 	public abstract AppResponse executeOperation(@PathVariable("id") String id,
 			@RequestParam("content") String content,
 			@RequestParam("fileUri") String fileUri,
-			@RequestParam("data") String data);
+			@RequestParam("data") String data, HttpServletRequest request);
 
 	@RequestMapping(value = "/format/{format}/checkLanguage", method = RequestMethod.POST)
 	@ResponseBody
 	public abstract AppResponse checkLanguage(
 			@PathVariable("format") String format,
 			@RequestParam("content") String content,
-			@RequestParam("fileUri") String fileUri);
+			@RequestParam("fileUri") String fileUri, HttpServletRequest request);
 
 	@RequestMapping(value = "/convert", method = RequestMethod.POST)
 	@ResponseBody
@@ -137,7 +138,7 @@ public abstract class BaseLanguageController {
 			@RequestParam("currentFormat") String currentFormat,
 			@RequestParam("desiredFormat") String desiredFormat,
 			@RequestParam("fileUri") String fileUri,
-			@RequestParam("content") String content);
+			@RequestParam("content") String content, HttpServletRequest request);
 
         @RequestMapping(value = "/help", method = RequestMethod.GET)
 	public String help(HttpServletRequest request) {
