@@ -10,7 +10,7 @@
 		<java.version>1.7</java.version>
 		<spring.version>4.0.6.RELEASE</spring.version>
 		<spring.security.version>3.2.0.RELEASE</spring.security.version>
-		<jackson.version>2.4.4</jackson.version>
+		<jackson.version>2.9.9.2</jackson.version>
 	</properties>
 
 	<pluginRepositories>
